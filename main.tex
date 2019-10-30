@@ -1,0 +1,255 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,latexsym,color,graphicx,verbatim}
+\usepackage{mathrsfs}
+\usepackage{layout}
+\usepackage{graphicx}
+
+%COLOCA COMANDOS EN ESPAÑOL
+%\renewcommand{\contentsname}{Contenido}
+%\renewcommand{\partname}{Parte}
+%\renewcommand{\appendixname}{Apéndice}
+%\renewcommand{\figurename}{Figura}
+%\renewcommand{\tablename}{Tabla}
+%\renewcommand{\abstractname}{Resumen}
+%\renewcommand{\refname}{Bibliografía}
+%FIN DEL BLOQUE
+\usepackage[acronym,shortcuts]{glossaries} %PARA UN GLOSARIO DE ACRÓNIMOS
+\makeglossaries
+\usepackage[font=small]{caption}
+\usepackage[colorlinks = true,
+                     linkcolor = blue,
+                     citecolor = red,
+                     urlcolor = blue]{hyperref}
+
+\baselineskip0.75cm
+\parskip0.5cm
+\parindent0cm
+
+\begin{document}
+
+
+\begin{titlepage}
+\centering {\Large {\sc Calibración del espectrografo EShel- II PF0011}}
+
+\vfill
+\centering {\Large Propuesta de trabajo de grado para optar al t\'itulo de F\'isico}
+\vfill
+\hfill
+
+\centering {\Large Jesús Alberto Sánchez Villafrades$^{1,2}$}
+
+\vfill
+
+\centering {\Large Director: Luis Alberto Núñez$^{1,2}$}
+
+\centering {\Large Co-Director: $^{3}$}
+
+
+
+\hfill
+
+
+
+
+
+
+{{\Large $^1$Grupo de Investigaci\'on en Relatividad y Gravitaci\'on GIRG}} \\
+{{\Large$^2$Grupo Halley de Astronom\'ia y Ciencias Aeroespaciales}} \\
+
+\vfill
+\vfill
+
+\centering {\Large Universidad Industrial de Santander\\Facultad de
+Ciencias\\Escuela de F\'{i}sica\\Bucaramanga\\2018}
+
+
+\end{titlepage}
+
+
+\newpage
+
+\tableofcontents
+
+%\newpage
+
+%\acrodef{LAGO}{Latin American Giant Observatory}
+
+\newpage
+
+
+\begin{abstract}
+
+
+
+La mayoría de sitios LAGO, usan modelos atmosféricos que no son construidos en base a parámetros que caracterizan específicamente las localizaciones de los detectores. 
+Por lo tanto, en este trabajo, se propone construir perfiles atmosféricos mensuales, usando datos extraídos del GDAS (Global Data Assimilation System). 
+Además, se propone estudiar las variaciones que generan dichos perfiles en el flujo simulado, en comparación con el perfil actualmente utilizado para Bucaramanga y de esta manera, poder establecer una metodología para crear perfiles atmosféricos sobre cualquier otra localización \cite{moreira2009modelo}\\
+
+%Surge entonces, la necesidad de mejorar las capacidades de la red de detección. En este trabajo se propone estudiar la pertinencia de la construcción y uso de perfiles atmosféricos mensuales, basados en datos extraídos del Global Data Assimilation System  (GDAS) para los sitios de LAGO. Así mismo, para verificar la efectividad de esta implementación los cálculos del flujo serán contrastados entre si.
+
+\vspace{0.5cm}
+Palabras clave: rayos cósmicos, perfiles atmosféricos, cascadas aéreas extensas.
+
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introducci\'on}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\section{Marco teórico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection {Principios de la espectroscopia.}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Objetivos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+\item \textbf{Objetivo General}
+
+Caracterizar cuantitativamente el efecto de los diferentes perfiles atmosféricos sobre el flujo de partículas secundarias originados por la interacción de rayos cósmicos, de baja energía, con la atmosféra.
+
+
+\item \textbf{Objetivos Espec\'ificos}
+\end{itemize}
+
+\begin{itemize}
+
+\item Generar perfiles atmosféricos de los 12 meses del a\~no a partir de datos del GDAS para ser usados en las simulaciones del fondo de partículas secundarias generadas por rayos cósmicos.
+
+\item Cuantificar las diferencias en el flujo de secundarios entre la atmósfera predeterminada en CORSIKA y los perfiles construidos con GDAS para Bucaramanga.
+
+\item Estimar el cambio del flujo de secundarios dependiendo de la época del año.
+
+\item Desarrollar una metodología para la creación de perfiles atmosféricos con GDAS que se usará en las simulaciones
+de fondo de rayos cósmicos de todos los sitios LAGO.
+
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Metodolog\'ia}
+
+Para alcanzar los objetivos propuestos, se seguirá el siguiente orden de actividades:
+
+\begin{itemize}
+
+\item[1.1] Se revisará y estudiará la bibliografía especializada, tomando en cuenta desde
+tópicos generales hasta artículos con el fin de comprender los fundamentos
+físicos y técnicos del problema a abordar.
+\item[1.2] Se crearán perfiles atmosféricos promediados mes a mes usando datos atmosféricos extraidos del GDAS para que sean leídos como parámetros en CORSIKA para la ciudad de Bucaramanga.
+
+\item[1.3] Con los promedios mes a mes, se estudiará la variabilidad de los parámetros atmosféricos considerados para el desarrollo de la lluvia.
+\item[2] Se realizarán simulaciones para estimación del fondo de secundarios usando el perfil atmosférico predeterminado en CORSIKA y los perfiles mensuales construidos anteriormente.
+\item[3] Se estimaran las variaciones en el flujo de fondo de secundarios a partir de las simulaciones mensuales realizadas.
+\item[4] Se creará una metodología para la creación de un perfil mensual en cualquier otro sitio geográfico a partir del GDAS.
+\item[5] Se elaborará el informe final en el cual se recopilan todos los desarrollos y análisis realizados en el proyecto de grado como base para la sustentación.
+ 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cronograma de Actividades}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{center}
+{\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+
+\textbf{Mes}/\textbf{Actividad}&\textbf{Act 1.1}&\textbf{Act 1.2}
+&\textbf{Act 1.3}&\textbf{Act 2}&\textbf{Act 3}&\textbf{Act 4}&\textbf{Act 5}\\
+
+\hline
+
+Enero&$\bigotimes$&&&&&&\\
+
+\hline
+
+Febrero&$\bigotimes$&$\bigotimes$&&&&&\\
+
+\hline
+
+Marzo&&$\bigotimes$&$\bigotimes$&&&&\\
+
+\hline
+
+Abril&&&$\bigotimes$&&&&\\
+
+\hline
+
+Mayo&&&$\bigotimes$&$\bigotimes$&&&\\
+
+\hline
+
+Junio&&&$\bigotimes$&$\bigotimes$&&&\\
+
+\hline
+Julio&&&$\bigotimes$&$\bigotimes$&$\bigotimes$&&$\bigotimes$\\
+
+\hline
+
+Agosto&&&&&$\bigotimes$&$\bigotimes$&\\
+
+\hline 
+
+Septiembre&&&&&&&$\bigotimes$\\
+
+\hline
+Octubre&&&&&&&$\bigotimes$\\
+\hline
+
+\end{tabular}
+}
+\end{center}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\medskip
+\bibliographystyle{unsrt}
+\bibliography{moreira.bib}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
