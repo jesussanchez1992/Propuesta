@@ -1,87 +1,98 @@
-\documentclass[11pt]{article}
+\documentclass[a4paper,12pt,twoside]{report}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
 
-
-\usepackage{amsmath}
-\usepackage{amssymb}
 \usepackage[utf8]{inputenc}
-%\usepackage[latin1]{inputenc}
-\usepackage[spanish]{babel}
-\usepackage[left=3cm,right=3cm,top=3cm,bottom=2.5cm]{geometry}
-\usepackage{amsmath,amssymb,latexsym,color,graphicx,verbatim}
-\usepackage{mathrsfs}
-\usepackage{layout}
+\usepackage{amsmath}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{multirow, array} 
+\usepackage{chngcntr}
 \usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{cite}
+\usepackage{adjustbox}
+\usepackage[table]{xcolor}
+\usepackage{braket}
+\usepackage{lipsum}
 
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=magenta,
+    citecolor=blue
+}
 
-%COLOCA COMANDOS EN ESPAÑOL
-%\renewcommand{\contentsname}{Contenido}
-%\renewcommand{\partname}{Parte}
-%\renewcommand{\appendixname}{Apéndice}
-%\renewcommand{\figurename}{Figura}
-%\renewcommand{\tablename}{Tabla}
-%\renewcommand{\abstractname}{Resumen}
-%\renewcommand{\refname}{Bibliografía}
-%FIN DEL BLOQUE
-\usepackage[acronym,shortcuts]{glossaries} %PARA UN GLOSARIO DE ACRÓNIMOS
-\makeglossaries
-\usepackage[font=small]{caption}
-\usepackage[colorlinks = true,
-                     linkcolor = blue,
-                     citecolor = red,
-                     urlcolor = blue]{hyperref}
-
-\baselineskip0.75cm
-\parskip0.5cm
-\parindent0cm
-
+\title{}
 \begin{document}
-
-
-\begin{titlepage}
-\centering {\Large {\sc Calibración del espectrografo EShel- II PF0011}}
-
-\vfill
-\centering {\Large Propuesta de trabajo de grado para optar al t\'itulo de F\'isico}
-\vfill
-\hfill
-
-\centering {\Large Jesús Alberto Sánchez Villafrades$^{1,2}$}
-
-\vfill
-
-\centering {\Large Director: Luis Alberto Núñez$^{1,2}$}
-
-\centering {\Large Co-Director: $^{3}$}
+\thispagestyle{empty}
+\fontsize{12pt}{12pt}\selectfont 
 
 
 
-\hfill
+%%%%%%%       PORTADILLA     %%%%%%%%%%%%
+
+\begin{center}
+\textbf {\huge Calibración del espectrografo EShel- II PF0011}
+%\huge
+
+\vspace{3cm}
+
+
+{\large \textbf{Autor:}}
+
+\vspace{0.5cm}
+
+\large Jesús Alberto Sánchez Villafrades$^{1,2}$
+
+\vspace{3cm}
+
+{\large \textbf{Director}}\\
+
+\vspace{0.5cm}
+
+{\large Director: Luis Alberto Núñez$^{1,2}$}\\
+
+\vspace{0.5cm}
+
+{\large \textbf{Codirector}}\\
+
+\vspace{0.5cm}
+
+{\large Juan Pablo Uchima Tamayo $^{3}$}
+
+\vspace{3cm}
+
+\normalsize
+
+\large Propuesta de trabajo de grado para optar al t\'itulo de F\'isico
+
+
+\vspace{4cm}
 
 
 
+\large $^1$Grupo de Investigaci\'on en Relatividad y Gravitaci\'on GIRG \\
+\large  $^2$Grupo Halley de Astronom\'ia y Ciencias Aeroespaciales \\
+\large  $^3$Universidad de la Serena \\
+\large  Escuela de Física - 2020
+  \end{center}
+\large
 
+%%%%%%%       PORTADILLA     %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-{{\Large $^1$Grupo de Investigaci\'on en Relatividad y Gravitaci\'on GIRG}} \\
-{{\Large$^2$Grupo Halley de Astronom\'ia y Ciencias Aeroespaciales}} \\
-
-\vfill
-\vfill
-
-\centering {\Large Universidad Industrial de Santander\\Facultad de
-Ciencias\\Escuela de F\'{i}sica\\Bucaramanga\\2018}
-
-
-\end{titlepage}
-
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%FIN  DE LA PORTADA    %%%
+%\leavevmode\thispagestyle{empty}\newpage
 
 \newpage
 
+
 \tableofcontents
 
-%\newpage
-
-%\acrodef{LAGO}{Latin American Giant Observatory}
 
 \newpage
 
@@ -89,7 +100,7 @@ Ciencias\\Escuela de F\'{i}sica\\Bucaramanga\\2018}
 \begin{abstract}
 
 
-
+\lipsum[1-2]
  
 
 %Surge entonces, la necesidad de mejorar las capacidades de la red de detección. En este trabajo se propone estudiar la pertinencia de la construcción y uso de perfiles atmosféricos mensuales, basados en datos extraídos del Global Data Assimilation System  (GDAS) para los sitios de LAGO. Así mismo, para verificar la efectividad de esta implementación los cálculos del flujo serán contrastados entre si.
@@ -103,7 +114,7 @@ Palabras clave:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introducci\'on}
+\chapter*{Introducci\'on}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,12 +131,12 @@ Palabras clave:
 
 
 
-\section{Marco teórico}
+\chapter{Marco teórico}
 La espectroscopia estudia la interacción entre la radiación electromagnética y la materia,en astronomía esta radiación es emitida por estrellas y otros objetos celestes y al ser dispersada brinda mucha información de la fuente que la genero.\\
 Para el caso del espectro visible esta Luz puede ser dispersada usando un prisma mediante el fenómeno de refracción o usando una rejilla de difracción, estos espectros dan información importante de las características físicas del objeto que las emite,están directamente relacionadas con la temperatura superficial del objeto así como con su composición química. Usando Efecto Dopler se puede tener información de la velocidad de rotación y traslación además de densidad y presión.
 \cite{utilidad}\\
 
-\subsection {Principios de la espectroscopia.}
+\section {Principios de la espectroscopia.}
 Todo elemento que  irradie luz presenta en esta luz información detallada de las propiedades constituyentes de dicho elemento así como su temperatura, esta luz esta compuesta de múltiples longitudes de onda que son separadas y se pueden observar en un sensor ccd en forma de linea espectral, que es la distribución de  la intensidad en función de la longitud de onda o la frecuencia  de luz dispersada.
 
 \subsection {Espectros y lineas espectrales.}
@@ -142,7 +153,7 @@ Se define un espectro continuo cuando la franja de colores  pasa de un color a o
 \centering
 \includegraphics[width=0.7\textwidth]{1}
 \caption[Espectro continuo.]{Espectro continuo.\cite{libro}}
- \label{fig:fig6}
+ \label{fig2}
 \end{figure}
 
 \textbf{Espectro de emisión :} Un gas a baja presión y excitado a altas temperaturas produce un espectro de emisión,estos espectros constan de rayas de diversos colores separadas por amplias zonas  negras en las que no se observa luz ver figura 2. Este tipo de espectro se da cuando los electrones en los átomos de estos gases excitados absorben energía de la fuente que los esta excitando  y saltan a orbitas superiores , la emisión tiene lugar cuando los electrones caen a niveles mas bajos emitiendo este exceso de energía en forma de fotones con una frecuencia característica propia de cada elemento.
@@ -152,7 +163,7 @@ Se define un espectro continuo cuando la franja de colores  pasa de un color a o
 \centering
 \includegraphics[width=0.7\textwidth]{2}
 \caption[Descripción versión comprimida]{El espectro de emisión del hidrógeno \cite{articulo1}}
- \label{fig:fig6}
+ \label{fig3}
 \end{figure}
 
 
@@ -164,7 +175,7 @@ En astronomía las fuente luminosa generalmente es una estrella, la luz provenie
 \centering
 \includegraphics[width=0.7\textwidth]{3}
 \caption[Descripción versión comprimida]{Espectro solar en el que se aprecian las líneas principales de von Fraunhofer. \cite{articulo1}}
- \label{fig:fig6}
+ \label{fig4}
 \end{figure}
 
 %falta citar de https://culturacientifica.com/2019/08/13/los-espectros-de-absorcion-de-los-gases/
@@ -193,16 +204,16 @@ Donde $ \lambda$ es la longitud de onda máxima emitida por el cuerpo y T es la 
 
 
 \begin{equation}
-    I(\nu,T)=\nu^3f\[\left(\frac{\nu}{T}\right)\]
-\end{equation}{}
+    I(\nu,T)=\nu^3 f \left(\frac{\nu}{T}\right)
+\end{equation}
 
 
-Donde $f(\left\frac{\nu}{T}\right)$ es desconocida pero solo puede depender de $\nu$ y de T.\\
+Donde $f\left(\frac{\nu}{T}\right)$ es desconocida pero solo puede depender de $\nu$ y de T.\\
 Sin embargo Wien usando los datos de los experimentos realizados en la época pudo llegar a una expresión mas detallada para la ecuación  (2).  
 
 
 \begin{equation}
-    I(\nu,T)= a\nu^3e^{-b(\frac{\nu}{T})
+    I(\nu,T)= a \nu^{3} e^{-b(\frac{\nu}{T})}
 \end{equation}{}
 
 
@@ -222,7 +233,7 @@ Esta expresión modelaba muy bien los experimentos  reproducidos en la época y 
 \centering
 \includegraphics[width=0.6\textwidth]{5}
 \caption[Descripción versión comprimida]{Wien propuso la expresión para la distribución normal de radiación que predice el pico de la distribución de corriente lineal con la la temperatura T.\cite{plank}}
- \label{fig:fig6}
+ \label{fig1}
 \end{figure}
 
 
@@ -231,17 +242,9 @@ Esta expresión modelaba muy bien los experimentos  reproducidos en la época y 
 \subsection {Diagramas de Hertzsprung-Russell}
 
 
-
-La espectroscopía permitiío la construccion del diagrama Hertzsprung-Russell, el cual se desarroll
-o inicialmente en la Universidad de Harvard.
-Este diagrama muestra la etapa de evolucion
-de las estrellas con las lneas espectrales que se~nala el estado de los elementos qumicos presentes
-en ellas. La figura 2.3 muestra como se relacionan las estrellas en tama~no, color, luminosidad,
-clase espectral y la magnitud absoluta. Cada punto en este diagrama representa una
-estrella en el rmamento, cuya magnitud y clase espectral absoluta han sido determinadas.
-Los datos se agrupan en: estrellas de secuencia principal, supergigantes, gigantes y enanas
+La espectroscopia permitió la construcción del diagrama Hertzsprung-Russell, el cual se desarrollo inicialmente en la Universidad de Harvard.
+Este diagrama muestra la etapa de evolución de las estrellas con las líneas espectrales que señala el estado de los elementos químicos presentes en ellas. La figura 2.3 muestra como se relacionan las estrellas en tamaño, color, luminosidad, clase espectral y la magnitud absoluta. Cada punto en este diagrama representa una estrella en el firmamento, cuya magnitud y clase espectral absoluta han sido determinadas. Los datos se agrupan en: estrellas de secuencia principal, supergigantes, gigantes y enanas
 blancas.
-
 
 
 %\subsection {Lineas de franhofer}
@@ -258,16 +261,16 @@ blancas.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Objetivos}
+\chapter{Objetivos}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{itemize}
 \item \textbf{Objetivo General}
 
-Realizar el montaje, calibración y puesta en funcionamiento de ESPECTROGRAFO eShel II con el que cuenta el Grupo Halley de Astronoḿıa y Ciencias Aeroespacialesde la Universidad Industrial de Santander.\\
+Realizar el montaje, calibración y puesta en funcionamiento de ESPECTRÓGRAFO eShel II con el que cuenta el Grupo Halley de Astronomía y Ciencias Aeroespaciales de la Universidad Industrial de Santander.\\
 
-\item \textbf{Objetivos Espec\'ificos}
+\item \textbf{Objetivos Específicos}
 \end{itemize}
 
 \begin{itemize}
@@ -289,7 +292,7 @@ Realizar el montaje, calibración y puesta en funcionamiento de ESPECTROGRAFO eS
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Metodolog\'ia}
+\chapter{Metodolog\'ia}
 
 El telescopio CDK 17 (corrected Dall-kirkham) es un telescopio de tubo ópticoo de diseño abierto, hecho en fibra de carbono con un paso de 43 kg, cuenta con 2 lentes de 90 mm (aplanadores de campo) y 2 espejos. 
 Un espejo primario elipsoidal con una apertura de 432 mm y una relación focal de f/2,6 y un espejo secundario con una apertura de 159 mm con forma esférica.\\
@@ -379,10 +382,12 @@ Octubre&&&&&&&$\bigotimes$\\
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\medskip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% bibliografía  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Bibliografía}%para que aparezca en la tabla de contenidos
 \bibliographystyle{unsrt}
-\bibliography{Tesis.bib}
+\bibliography{Bibliography/Tesis.bib}
+%Archivo con las referencias bibliográficas, creado en JabRef (o manualmente)
 
 
 
@@ -390,5 +395,5 @@ Octubre&&&&&&&$\bigotimes$\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
-Al hacer las primeras aproximaciones de 
+
 
